@@ -4,7 +4,7 @@ import { Text, View, Button } from "react-native";
 
 export default function Index() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: colors.white }}>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text>Olá</Text>
 
       <Button
