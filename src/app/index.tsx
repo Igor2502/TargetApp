@@ -1,9 +1,10 @@
+import { colors } from "@/theme/colors";
 import { router } from "expo-router";
 import { Text, View, Button } from "react-native";
 
 export default function Index() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', }}>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: colors.white }}>
       <Text>Olá</Text>
 
       <Button
@@ -13,6 +14,10 @@ export default function Index() {
       <Button
         title="Transação"
         onPress={() => router.navigate('/transaction/132')}
+      />
+      <Button
+        title="Progresso"
+        onPress={() => router.navigate('/in-progress/12')}
       />
     </View>
   )
