@@ -1,5 +1,5 @@
 import Loading from '@/components/Loading';
-import { colors } from '@/theme/colors'
+import { colors } from '@/theme';
 import { Inter_400Regular, Inter_500Medium, Inter_700Bold, useFonts } from '@expo-google-fonts/inter'
 import { Stack } from 'expo-router'
 
