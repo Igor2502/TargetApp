@@ -3,6 +3,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import { colors } from "@/theme";
 import { styles } from "./styles";
 import Separator from "../Separator";
+import Summary from "../Summary";
 
 export type HomeHeaderProps = {
   total: string;
@@ -24,6 +25,18 @@ export default function HomeHeader({ data }: Props) {
       </View>
 
       <Separator color={colors.blue[400]} />
+
+      <View style={styles.summary}>
+        <Summary
+          data={{ label: "Entradas", value: "R$ 6.184,90" }}
+          icon={{ name: "arrow-upward", color: colors.green[500] }}
+        />
+        <Summary
+          data={{ label: "Saídas", value: "-R$ 883,65" }}
+          icon={{ name: "arrow-downward", color: colors.red[400] }}
+          isLeft
+        />
+      </View>
 
     </LinearGradient>
   );
