@@ -16,7 +16,7 @@ type Props = {
   isLeft?: boolean;
 }
 
-export default function Summary({ data, icon, isLeft = false }: Props) {
+export function Summary({ data, icon, isLeft = false }: Props) {
   return (
     <View style={styles.container}>
       <View style={[styles.header, isLeft && { justifyContent: 'flex-end' }]}>
