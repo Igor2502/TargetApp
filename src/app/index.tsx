@@ -1,4 +1,5 @@
 import HomeHeader from "@/components/HomeHeader";
+import { Target } from "@/components/Target";
 import { View } from "react-native";
 
 const summary = {
@@ -7,10 +8,23 @@ const summary = {
   output: { label: "Saídas", value: "-R$ 883,65" }
 }
 
+const targets = [
+  {
+    name: "Comprar uma cadeira ergonômica",
+    percentage: "75%",
+    current: "R$ 900,00",
+    target: "R$ 1.200,00"
+  }
+];
+
 export default function Index() {
   return (
     <View style={{ flex: 1 }}>
       <HomeHeader data={summary} />
+
+      <Target
+        data={targets[0]}
+      />
     </View>
   )
 }
