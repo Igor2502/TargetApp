@@ -1,5 +1,5 @@
 import { FlatList, FlatListProps, StyleProp, Text, View, ViewStyle } from "react-native";
-import { styles } from "./style";
+import { styles } from "./styles";
 import Separator from "../Separator";
 import { colors } from "@/theme";
 
