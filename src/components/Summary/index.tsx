@@ -16,10 +16,10 @@ type Props = {
   isRight?: boolean;
 }
 
-export function Summary({ data, icon, isRight: isLeft = false }: Props) {
+export function Summary({ data, icon, isRight = false }: Props) {
   return (
     <View style={styles.container}>
-      <View style={[styles.header, isLeft && { justifyContent: 'flex-end' }]}>
+      <View style={[styles.header, isRight && { justifyContent: 'flex-end' }]}>
         <MaterialIcons name={icon.name} color={icon.color} size={16} />
         <Text style={styles.label}>{data.label}</Text>
       </View>
