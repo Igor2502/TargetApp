@@ -5,17 +5,20 @@ import { Button } from "@/components/Button";
 import { CurrencyInput } from "@/components/CurrencyInput";
 import { Input } from "@/components/Input";
 import { PageHeader } from "@/components/PageHeader";
+import { useTargetDatabase } from "@/database/useTargetDatabase";
 
 export default function Target() {
   const [isProcessing, setIsProcessing] = useState(false);
   const [name, setName] = useState('');
   const [amount, setAmout] = useState(0);
 
-  const params = useLocalSearchParams<{ id?: string }>()
+  const params = useLocalSearchParams<{ id?: string }>();
+
+  const targetDatabase = useTargetDatabase();
 
   function handleSave() {
     if (!name.trim() || amount <= 0) {
-      return Alert.alert("Atenção", "Preencha nome e valor");
+      return Alert.alert("Atenção", "Preencha o nome ou um valor maior que zero.");
     }
 
     setIsProcessing(true);
@@ -29,12 +32,12 @@ export default function Target() {
 
   async function create() {
     try {
-      Alert.alert("Nova Meta", "Meta criada com sucesso!", [
-        {
-          text: "Ok",
-          onPress: () => router.back()
-        }
-      ])
+      await targetDatabase.create({ name, amount });
+
+      Alert.alert("Nova Meta", "Meta criada com sucesso!", [{
+        text: "Ok",
+        onPress: () => router.back()
+      }]);
     } catch (error) {
       Alert.alert("Erro", "Não foi possível criar a meta.");
       console.log(error);
