@@ -47,8 +47,25 @@ export function useTargetDatabase() {
     `);
   }
 
+  function show(id: number) {
+    return database.getFirstAsync<TargetResponse>(`
+      SELECT
+        ta.id,
+        ta.name,
+        ta.amount,
+        COALESCE(SUM(tr.amount), 0) AS current,
+        COALESCE((SUM(tr.amount) / ta.amount) * 100, 0) AS percentage,
+        ta.created_at,
+        ta.updated_at
+      FROM targets ta
+      LEFT JOIN transactions tr ON ta.id = tr.target_id
+      WHERE ta.id = ${id}
+    `);
+  }
+
   return {
     create,
-    listBySavedValue
+    listBySavedValue,
+    show
   }
 }
