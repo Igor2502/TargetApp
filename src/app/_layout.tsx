@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 import { Stack } from 'expo-router';
 import { SQLiteProvider } from 'expo-sqlite';
 import { Inter_400Regular, Inter_500Medium, Inter_700Bold, useFonts } from '@expo-google-fonts/inter';
-import Loading from '@/components/Loading';
+import { Loading } from '@/components/Loading';
 import { migrate } from '@/database/migrate';
 import { colors } from '@/theme';
 
