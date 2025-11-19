@@ -8,6 +8,7 @@ import { List } from "@/components/List";
 import { Target, TargetProps } from "@/components/Target";
 import { useTargetDatabase } from "@/database/useTargetDatabase";
 import { Loading } from "@/components/Loading";
+import { numberToCurrency } from "@/utils/numberToCurrency";
 
 const summary = {
   total: "R$ 2.680,00",
@@ -29,9 +30,9 @@ export default function Index() {
         (item) => ({
           id: String(item.id),
           name: item.name,
-          current: String(item.current),
+          current: numberToCurrency(item.current),
           percentage: item.percentage.toFixed(0) + "%",
-          target: String(item.amount)
+          target: numberToCurrency(item.amount)
         })
       )
     } catch (error) {
