@@ -24,9 +24,24 @@ export default function Target() {
     setIsProcessing(true);
 
     if (params.id) {
-      // update
+      update();
     } else {
       create();
+    }
+  }
+
+  async function update() {
+    try {
+      await targetDatabase.update({ id: Number(params.id), name, amount });
+
+      Alert.alert("Sucesso!", "Meta atualizada com sucesso!", [{
+        text: "Ok",
+        onPress: () => router.back()
+      }]);
+    } catch (error) {
+      Alert.alert("Erro", "Não foi possível atualizar a meta.");
+      console.log(error);
+      setIsProcessing(false);
     }
   }
 
