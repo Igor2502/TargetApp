@@ -1,12 +1,15 @@
+import { useState } from "react";
 import { Alert, View } from "react-native";
 import { router, useLocalSearchParams } from "expo-router";
-import { PageHeader } from "@/components/PageHeader";
-import { CurrencyInput } from "@/components/CurrencyInput";
+
 import { Input } from "@/components/Input";
 import { Button } from "@/components/Button";
+import { PageHeader } from "@/components/PageHeader";
+import { CurrencyInput } from "@/components/CurrencyInput";
 import { TransactionType } from "@/components/TransactionType";
-import { useState } from "react";
+
 import { TransactionTypes } from "@/utils/TransactionTypes";
+
 import { useTransactionsDatabase } from "@/database/useTransactionsDatabase";
 
 export default function Transaction() {

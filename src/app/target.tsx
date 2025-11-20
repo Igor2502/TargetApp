@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { Alert, StatusBar, View } from "react-native";
 import { router, useLocalSearchParams } from "expo-router";
-import { Button } from "@/components/Button";
-import { CurrencyInput } from "@/components/CurrencyInput";
+
 import { Input } from "@/components/Input";
+import { Button } from "@/components/Button";
 import { PageHeader } from "@/components/PageHeader";
+import { CurrencyInput } from "@/components/CurrencyInput";
 import { useTargetDatabase } from "@/database/useTargetDatabase";
 
 export default function Target() {

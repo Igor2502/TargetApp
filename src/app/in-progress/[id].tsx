@@ -1,17 +1,20 @@
 import { useCallback, useState } from "react";
 import { Alert, StatusBar, View } from "react-native";
 import { router, useFocusEffect, useLocalSearchParams } from "expo-router";
-import { Button } from "@/components/Button";
+import dayjs from "dayjs";
+
 import { List } from "@/components/List";
+import { Button } from "@/components/Button";
 import { Loading } from "@/components/Loading";
-import { PageHeader } from "@/components/PageHeader";
 import { Progress } from "@/components/Progress";
+import { PageHeader } from "@/components/PageHeader";
 import { Transaction, TransactionProps } from "@/components/Transaction";
+
 import { useTargetDatabase } from "@/database/useTargetDatabase";
 import { useTransactionsDatabase } from "@/database/useTransactionsDatabase";
+
 import { numberToCurrency } from "@/utils/numberToCurrency";
 import { TransactionTypes } from "@/utils/TransactionTypes";
-import dayjs from "dayjs";
 
 export default function InProgress() {
   const params = useLocalSearchParams<{ id: string }>();

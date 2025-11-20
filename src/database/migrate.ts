@@ -1,7 +1,5 @@
 import { type SQLiteDatabase } from "expo-sqlite";
 
-
-
 export async function migrate(database: SQLiteDatabase) {
   await database.execAsync(`
     PRAGMA foreign_keys = ON;

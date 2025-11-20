@@ -2,13 +2,15 @@ import { useCallback, useState } from "react";
 import { Alert, StatusBar, View } from "react-native";
 import { router, useFocusEffect } from "expo-router";
 
-import { Button } from "@/components/Button";
-import { HomeHeader, HomeHeaderProps } from "@/components/HomeHeader";
 import { List } from "@/components/List";
-import { Target, TargetProps } from "@/components/Target";
-import { useTargetDatabase } from "@/database/useTargetDatabase";
+import { Button } from "@/components/Button";
 import { Loading } from "@/components/Loading";
+import { Target, TargetProps } from "@/components/Target";
+import { HomeHeader, HomeHeaderProps } from "@/components/HomeHeader";
+
 import { numberToCurrency } from "@/utils/numberToCurrency";
+
+import { useTargetDatabase } from "@/database/useTargetDatabase";
 import { useTransactionsDatabase } from "@/database/useTransactionsDatabase";
 
 export default function Index() {
