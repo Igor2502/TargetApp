@@ -10,7 +10,7 @@ import { useTargetDatabase } from "@/database/useTargetDatabase";
 
 export default function Target() {
   const [isProcessing, setIsProcessing] = useState(false);
-  const [name, setName] = useState('');
+  const [name, setName] = useState("");
   const [amount, setAmout] = useState(0);
 
   const params = useLocalSearchParams<{ id?: string }>();
@@ -91,7 +91,7 @@ export default function Target() {
       setName(response.name);
       setAmout(response.amount);
     } catch (error) {
-      Alert.alert('Erro', 'Não foi possível carregar os detalhes da meta.');
+      Alert.alert("Erro", "Não foi possível carregar os detalhes da meta.");
       console.log(error);
     }
   }
@@ -110,7 +110,7 @@ export default function Target() {
         subtitle="Economize para alcançar sua meta financeira"
         rightButton={
           params.id
-            ? { icon: 'delete', onPress: handleRemove }
+            ? { icon: "delete", onPress: handleRemove }
             : undefined
         }
       />

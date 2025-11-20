@@ -21,9 +21,9 @@ export default function InProgress() {
   const [isFetching, setIsFetching] = useState(true);
   const [transactions, setTransactions] = useState<TransactionProps[]>([]);
   const [details, setDetails] = useState({
-    name: '',
-    current: 'R$ 0,00',
-    target: 'R$ 0,00',
+    name: "",
+    current: "R$ 0,00",
+    target: "R$ 0,00",
     percentage: 0,
   });
   const targetDatabase = useTargetDatabase();
@@ -39,7 +39,7 @@ export default function InProgress() {
         percentage: response.percentage,
       });
     } catch (error) {
-      Alert.alert('Erro', 'Não foi possível carregar os detalhes da meta.');
+      Alert.alert("Erro", "Não foi possível carregar os detalhes da meta.");
       console.log(error);
     }
   }
@@ -51,13 +51,13 @@ export default function InProgress() {
         response.map(item => ({
           id: String(item.id),
           value: numberToCurrency(item.amount),
-          date: dayjs(item.created_at).format('DD/MM/YYYY [às] HH:mm'),
+          date: dayjs(item.created_at).format("DD/MM/YYYY [às] HH:mm"),
           description: item.observation,
           type: item.amount < 0 ? TransactionTypes.Output : TransactionTypes.Input,
         }))
       );
     } catch (error) {
-      Alert.alert('Erro', 'Não foi possível carregar as transações.');
+      Alert.alert("Erro", "Não foi possível carregar as transações.");
       console.log(error);
     }
   }
@@ -84,7 +84,7 @@ export default function InProgress() {
       fetchData();
       Alert.alert("Transação", "Transação removida com sucesso.");
     } catch (error) {
-      Alert.alert('Erro', 'Não foi possível remover a transação.');
+      Alert.alert("Erro", "Não foi possível remover a transação.");
       console.log(error);
     }
   }
@@ -105,7 +105,7 @@ export default function InProgress() {
       <PageHeader
         title={details.name}
         rightButton={{
-          icon: 'edit',
+          icon: "edit",
           onPress: () => router.navigate(`/target?id=${params.id}`)
         }}
       />
