@@ -31,7 +31,7 @@ export function useTargetDatabase() {
     });
   }
 
-  async function listBySavedValue() {
+  async function listByClosestTarget() {
     return database.getAllAsync<TargetResponse>(`
       SELECT
         ta.id,
@@ -47,7 +47,7 @@ export function useTargetDatabase() {
         ta.id,
         ta.name,
         ta.amount
-      ORDER BY current DESC
+      ORDER BY percentage DESC
     `);
   }
 
@@ -89,7 +89,7 @@ export function useTargetDatabase() {
 
   return {
     create,
-    listBySavedValue,
+    listByClosestTarget,
     show,
     update,
     remove
